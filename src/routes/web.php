@@ -10,8 +10,11 @@ Route::get('/', function () {
     return $response;
 });
 
-Route::get("/telegram", [BotController::class,"index"]);
+// Route::get("/telegram", [BotController::class,"index"]);
+// Route::get("/set-webhook", [BotController::class,"setWebhook"]);
+// Route::get('/handle', [BotController::class, 'handle'])->name("handle");
+// Route::get('/updated-activate', [BotController::class,'updated'])->name("updated");
+// Route::post('/telegram/webhook', [BotController::class,'main'])->name("main");
+
+Route::get("/telegram-webhook", [BotController::class,"updated"]);
 Route::get("/set-webhook", [BotController::class,"setWebhook"]);
-Route::get('/handle', [BotController::class, 'handle'])->name("handle");
-Route::get('/updated-activate', [BotController::class,'updated'])->name("updated");
-Route::post('/telegram/webhook', [BotController::class,'main'])->name("main");

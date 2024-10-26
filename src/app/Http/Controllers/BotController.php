@@ -86,13 +86,14 @@ class BotController extends Controller
 
     public function setWebhook()
     {
-        return Telegram::setWebhook(['url' => "https://api.telegram.org/bot7649729929:AAGH2318iVTQsfRBks6U_mhv9T3ShzrUvxc/setWebhook?url=https://dev-bot.dvlpr78.ir/telegram/webhook"]);
+        $url = config('telegram.bots.mybot.webhook_url');
+        return Telegram::setWebhook(['url' => $url]);
     }
 
     public function updated(Request $request)
     {
         $activity = Telegram::getWebhookUpdate();
-        dd($activity);
+        Log::debug($activity->toArray());
     }
 
     public function main(Request $request)
