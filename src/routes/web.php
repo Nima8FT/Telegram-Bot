@@ -13,4 +13,5 @@ Route::get('/', function () {
 Route::get("/telegram", [BotController::class,"index"]);
 Route::get("/set-webhook", [BotController::class,"setWebhook"]);
 Route::get('/handle', [BotController::class, 'handle'])->name("handle");
-Route::post('/updated-activate', [BotController::class,'updated'])->name("updated");
+Route::get('/updated-activate', [BotController::class,'updated'])->name("updated");
+Route::post('/telegram/webhook', [BotController::class,'main'])->name("main");

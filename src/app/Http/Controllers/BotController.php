@@ -95,4 +95,11 @@ class BotController extends Controller
         dd($activity);
     }
 
+    public function main(Request $request)
+    {
+        $update = Telegram::getWebhookUpdate();
+        Log::debug('logger webhook update', [$update]);
+        return response()->json(['status' => 'logged successfully']);
+    }
+
 }
